@@ -1,3 +1,11 @@
 h1 {
 	text-align: center;
 }
+
+.bottom-left {
+	text-align: left;
+}
+
+.bottom-right {
+	text-align: right;
+}

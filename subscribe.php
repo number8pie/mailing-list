@@ -12,7 +12,7 @@ $query = "INSERT INTO email_list (first_name, last_name, email) " .
 
 mysqli_query($dbc, $query);
 
-echo "Success! You've been added to the mailing list!";
+echo "Success! You've been added to the mailing list! <a href='index.html'>Return to main page.</a>";
 
 mysqli_close($dbc);
 
