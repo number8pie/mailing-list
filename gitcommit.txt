@@ -1,0 +1,13 @@
+#NEXT COMMIT MESSAGE:
+
+New file db_seed.sql, project seed file that creates database and table.
+New file gitcommit.txt file to note commit messages.
+Created table for email address submition.
+New file addemail.php to send the form data to the database.
+New file sendmail.html so that the user can send out a mass email to the mailing list.
+New file sendmail.php will take the user's input from sendmail.html and send it to the mailing list.
+App now works (doesen't send mail right now because it's on locahost).
+
+Next to do:
+1 - Assign the email sent message to a success variable, and check if the success variable is set to echo the message above the form.
+2 - Add a link to log in on the index.html page, when logged in it takes you to the send email page.

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>number8pie's mailing list</title>
+    <title>number8pie's mass mailer</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/app.css" />
   </head>
@@ -12,25 +12,23 @@
 
     <div class="row">
       <div class="medium-6 medium-offset-3 columns">
-        <h1>Mailing List</h1>
+        <h1>Send an Email</h1>
       </div>
     </div>
 
     <div class="row">
       <div class="medium-6 medium-offset-3 columns">
-        <p>Enter your first name, last name and email address below to be added to our mailing list.</p>
+        <p>Enter the subject and the email message and it will be sent out to everyone in the database.</p>
       </div>
     </div>
 
     <div class="row">
       <div class="medium-6 medium-offset-3 columns">
-        <form method="post" action="addemail.php">
-          <label for="firstname">First Name:</label>
-          <input type="text" id="firstname" name="firstname"></input>
-          <label for="lastname">Last Name:</label>
-          <input type="text" id="lastname" name="lastname"></input>
-          <label for="email">Email:</label>
-          <input type="text" id="email" name="email"></input>
+        <form method="post" action="sendmail.php">
+          <label for="subject">subject:</label>
+          <input type="text" id="subject" name="subject"></input>
+          <label for="message">Message:</label>
+          <textarea id="message" name="message"></textarea>
           <input class="button" type="submit"></input>
         </form>
       </div>
