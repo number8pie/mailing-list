@@ -1,9 +1,11 @@
 #NEXT COMMIT MESSAGE:
 
-New files unsubscribe.html and unsubscribe.php to allow users to remove themselves from the mailing list.
-Renamed a few files.
-Added links to the bottom of pages to navigate, and also to success messages.
+Added some form validation to the script, not completely happy with the methof the book has used; lots if if's.
+A bit if'y, hah!
+Deleted sendmail.html and instead copied all the html into sendmail.php, and made the form self-referencing.
+Useful method of making a form self-referencing is using $_SERVER['PHP_SELF'] so if the file is ever renamed it will still reference itself. Use this as the action: <?php echo $_SERVER['PHP_SELF']; ?>.
 
 Next to do:
-1 - To have the success message on the same page, I need the php that's executed on the same page. Next task when putting some polish on this project.
-2 - Add a log in to the send email page, maybe rename it admin.
+1 - Create an error message variable, and use concatenation to add messages to it when a field is empty. Then if there's an error echo the error message variable on the page with the form. 
+2 - If the user had entered data into the form, have it remain in the form after the error message is echoed.
+3 - Add a log in to the send email page, maybe rename it admin.
