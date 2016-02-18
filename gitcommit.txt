@@ -4,6 +4,7 @@ Added error message variable, error message is now echoed above the form. Styled
 Added sticky values to the form.
 
 Next to do:
-1 - I need to make it so that the error messages are displayed near the form, currently right at the top of the page, I didn't think I needed an error message variable but I think this is the wa to do this.
-2 - If the user had entered data into the form, have it remain in the form after the error message is echoed.
-3 - Add a log in to access the send email page.
+1 - Make the index and subscribe page self-referencing.
+2 - Make the error messages show on the same page above the form like sendmail.php.
+3 - Sort out the navigation links.
+4 - Add a log in to access the send email page.
