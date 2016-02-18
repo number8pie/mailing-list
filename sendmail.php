@@ -4,17 +4,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$from = 'number8pie@gmail.com';
 	$subject = $_POST['subject'];
 	$text = $_POST['message'];
+	$error ="";
 
 	if (empty($subject) && empty($text)) {
-		echo "You forgot to write your subject and message.";
+		$error = "You forgot to write your subject and message.";
 	}
 
 	if (empty($subject) && !empty($text)) {
-		echo "You forgot to write your subject.";
+		$error = "You forgot to write your subject.";
 	}
 
 	if (!empty($subject) && empty($text)) {
-		echo "You forgot to write your message.";
+		$error = "You forgot to write your message.";
 	}
 
 	if (!empty($subject) && !empty($text)) {
@@ -65,13 +66,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       </div>
     </div>
 
+    <?php 
+    if (!empty($error)) {
+    	echo
+		    "<div class='row'>
+		      <div class='medium-6 medium-offset-3 columns error-msg'>
+		        <p>" . $error ."</p>
+		      </div>
+		    </div>"
+		;
+    }
+    ?>
+
+    <div class="row">
+      <div class="medium-6 medium-offset-3 columns">
+        <p></p>
+      </div>
+    </div>
+
     <div class="row">
       <div class="medium-6 medium-offset-3 columns">
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
           <label for="subject">subject:</label>
-          <input type="text" id="subject" name="subject"></input>
+          <input type="text" id="subject" name="subject" value="<?php if(!empty($subject)){echo $subject;}?>"></input>
           <label for="message">Message:</label>
-          <textarea id="message" name="message"></textarea>
+          <textarea id="message" name="message"><?php if (!empty($text)) {echo $text;}?></textarea>
           <input class="button" type="submit"></input>
         </form>
       </div>

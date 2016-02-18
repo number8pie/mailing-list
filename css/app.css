@@ -9,3 +9,10 @@ h1 {
 .bottom-right {
 	text-align: right;
 }
+
+.error-msg p {
+	color: #fff;
+	background-color: red;
+	text-align: center;
+	padding: 12px 0;
+}

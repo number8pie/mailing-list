@@ -1,7 +1,7 @@
 #NEXT COMMIT MESSAGE:
 
-Changed the method of checking if a form has been posted, to: $_SERVER["REQUEST_METHOD"] == "POST". Form submission works now.
-Creating a new branch to get the error message displayed right and make the form values the user has entered sticky if it encounters an error.
+Added error message variable, error message is now echoed above the form. Styled a bit.
+Added sticky values to the form.
 
 Next to do:
 1 - I need to make it so that the error messages are displayed near the form, currently right at the top of the page, I didn't think I needed an error message variable but I think this is the wa to do this.
