@@ -1,11 +1,9 @@
 #NEXT COMMIT MESSAGE:
 
-Added some form validation to the script, not completely happy with the methof the book has used; lots if if's.
-A bit if'y, hah!
-Deleted sendmail.html and instead copied all the html into sendmail.php, and made the form self-referencing.
-Useful method of making a form self-referencing is using $_SERVER['PHP_SELF'] so if the file is ever renamed it will still reference itself. Use this as the action: <?php echo $_SERVER['PHP_SELF']; ?>.
+Changed the method of checking if a form has been posted, to: $_SERVER["REQUEST_METHOD"] == "POST". Form submission works now.
+Creating a new branch to get the error message displayed right and make the form values the user has entered sticky if it encounters an error.
 
 Next to do:
-1 - Create an error message variable, and use concatenation to add messages to it when a field is empty. Then if there's an error echo the error message variable on the page with the form. 
+1 - I need to make it so that the error messages are displayed near the form, currently right at the top of the page, I didn't think I needed an error message variable but I think this is the wa to do this.
 2 - If the user had entered data into the form, have it remain in the form after the error message is echoed.
-3 - Add a log in to the send email page, maybe rename it admin.
+3 - Add a log in to access the send email page.

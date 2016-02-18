@@ -1,21 +1,20 @@
 <?php
 
-if (isset($_POST['submit'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$from = 'number8pie@gmail.com';
 	$subject = $_POST['subject'];
 	$text = $_POST['message'];
-	$output_form = false;
 
 	if (empty($subject) && empty($text)) {
-		echo "You forgot to write your subject and message. <a href='sendmail.html'>Go back.</a>";
+		echo "You forgot to write your subject and message.";
 	}
 
 	if (empty($subject) && !empty($text)) {
-		echo "You forgot to write your subject. <a href='sendmail.html'>Go back.</a>";
+		echo "You forgot to write your subject.";
 	}
 
 	if (!empty($subject) && empty($text)) {
-		echo "You forgot to write your message. <a href='sendmail.html'>Go back.</a>";
+		echo "You forgot to write your message.";
 	}
 
 	if (!empty($subject) && !empty($text)) {
