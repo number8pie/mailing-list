@@ -24,3 +24,34 @@ p.error-msg {
 p.success-msg {
 	background-color: #007e02;
 }
+
+nav {
+	margin: 24px 0;
+}
+
+nav ul {
+	list-style: none;
+	text-align: center;
+}
+
+nav ul li {
+	display: inline;
+}
+
+nav ul li:before {
+	color: #2199e8;
+	font-family: FontAwesome;
+  font-size: 6px;
+  content: '\f111';
+  vertical-align: middle;
+  margin: 12px;
+}
+
+nav ul li:first-child:before {
+	content: '';
+}
+
+
+.active {
+	text-decoration: underline;
+}

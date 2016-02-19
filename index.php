@@ -1,5 +1,7 @@
 <?php
 
+$page = "index";
+
 $error = "";
 $success_msg = "";
 
@@ -48,6 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>number8pie's mailing list</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/app.css" />
+
   </head>
   <body>
 
@@ -106,14 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     ?>
 
-    <div class="row">
-      <div class="medium-3 medium-offset-3 columns">
-        <p class="bottom-left"><a href="unsubscribe.html">Unsubscribe</a></p>
-      </div>
-      <div class="medium-3 columns end">
-        <p class="bottom-right"><a href="sendmail.php">Send an email</a></p>
-      </div>
-    </div>
+<?php include_once("inc/nav.php"); ?>
 
     <script src="js/vendor/jquery.min.js"></script>
     <script src="js/vendor/what-input.min.js"></script>

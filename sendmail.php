@@ -1,5 +1,7 @@
 <?php
 
+$page = "sendmail";
+
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -88,20 +90,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="row">
       <div class="medium-6 medium-offset-3 columns">
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-          <label for="subject">subject:</label>
+          <label for="subject">Subject:</label>
           <input type="text" id="subject" name="subject" value="<?php if(!empty($subject)){echo $subject;}?>"></input>
           <label for="message">Message:</label>
-          <textarea id="message" name="message"><?php if (!empty($text)) {echo $text;}?></textarea>
+          <textarea id="message" name="message" rows="5"><?php if (!empty($text)) {echo $text;}?></textarea>
           <input class="button" type="submit"></input>
         </form>
       </div>
     </div>
 
-    <div class="row">
-      <div class="medium-6 medium-offset-3 columns">
-        <p class="bottom-left"><a href="index.html">Back</a></p>
-      </div>
-    </div>
+<?php include_once("inc/nav.php"); ?>
 
     <script src="js/vendor/jquery.min.js"></script>
     <script src="js/vendor/what-input.min.js"></script>
