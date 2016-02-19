@@ -2,6 +2,11 @@
 
 $page = "sendmail";
 
+$host = "localhost";
+$username = "lee";
+$password = "lee1";
+$database = "mailing_list";
+
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -22,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	}
 
 	if (!empty($subject) && !empty($text)) {
-		$dbc = mysqli_connect('localhost', 'lee', 'lee1', 'mailing_list')
+		$dbc = mysqli_connect("$host", "$username", "$password", "$database")
 						or die('Error connecting to MySQL server.');
 
 		$query = "SELECT * FROM email_list";
@@ -37,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$to = $row['email'];
 
 			mail($to, $subject, $msg, 'From: ' . $from);
-			echo 'Email sent to: ' . $to . '<br /> <a href="index.html">Return.</a>' ;
+			echo 'Email sent to: ' . $to . '<br />' ;
 		}
 
 		mysqli_close($dbc);

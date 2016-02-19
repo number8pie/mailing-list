@@ -2,12 +2,17 @@
 
 $page = "unsubscribe";
 
+$host = "localhost";
+$username = "lee";
+$password = "lee1";
+$database = "mailing_list";
+
 $success_msg = "";
 $error_msg = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-  $dbc = mysqli_connect('localhost', 'lee', 'lee1', 'mailing_list')
+  $dbc = mysqli_connect("$host", "$username", "$password", "$database")
           or die('Error connecting to MySQL server.');
 
   $email = $_POST['email'];

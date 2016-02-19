@@ -1,10 +1,8 @@
 #NEXT COMMIT MESSAGE:
 
-Added error message variable to index.php, error message is now echoed above the form. Styled.
-Added sticky values to the form in index.php.
-(Last commit with similar messages was for sendmail.php)
-Wrote if loop in index.php that will either show the form and error messages, if there are any error messages, or the success message. Styled.
-Added nav to get around the pages easier, put the nav in an include file in a new inc folder. Set a variable at the top of each page so that the nav using an if loop can set the class active to the current page. Styled.
+Stored the host, username, password and database details for connecting to the db in variables.
 
 Next to do:
-1 - Add a log in to access the send email page. (to be done at a later date, as this is a more advance subject, password encryption, salts etc.)
+1 - Success message on sendmail.php needs to look the same as the error and success messages on other pages.
+2 - Prevent sql injection on all input fields in index and sendmail.
+3 - Add a log in to access the send email page. (to be done at a later date, as this is a more advance subject, password encryption, salts etc.)
