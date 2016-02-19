@@ -35,14 +35,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						or die('Error querying database.');
 
 		while ($row = mysqli_fetch_array($result)) {
-			$first_name = $row['first_name'];
-			$last_name = $row['last_name'];
+			
+			require 'inc/class.phpmailer.php';
+			$mail = new PHPMailer();
+			$mail->IsSMTP();
+			$mail->Mailer = 'smtp';
+			$mail->SMTPAuth = true;
+			$mail->Host = 'smtp.gmail.com'; // "ssl://smtp.gmail.com" didn't worked
+			$mail->Port = 465;
+			$mail->SMTPSecure = 'ssl';
+			// or try these settings (worked on XAMPP and WAMP):
+			// $mail->Port = 587;
+			// $mail->SMTPSecure = 'tls';
 
-			$msg = "Dear $first_name $last_name, \n $text";
-			$to = $row['email'];
 
-			mail($to, $subject, $msg, 'From: ' . $from);
-			echo 'Email sent to: ' . $to . '<br />' ;
+			$mail->Username = "number8pie@gmail.com";
+			$mail->Password = "sinbinwin290909";
+
+			$mail->IsHTML(true); // if you are going to send HTML formatted emails
+
+			$mail->From = $from;
+			$mail->FromName = "Lee Thomas";
+
+			$mail->Subject = $subject;
+			$mail->Body = "Dear $first_name $last_name, \n $text";
+
+			if(!$mail->Send())
+			    echo "Message was not sent <br />PHPMailer Error: " . $mail->ErrorInfo;
+			else
+			    echo 'Email sent to: ' . $to . '<br />';
+
+			$mail->ClearAllRecipients();
+
 		}
 
 		mysqli_close($dbc);
