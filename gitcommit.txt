@@ -1,6 +1,6 @@
 #NEXT COMMIT MESSAGE:
 
-Stored the host, username, password and database details for connecting to the db in variables.
+Setting up PHP mailer with WAMP so I can check that the script is working properly, and check that the success messages are displayed like the other pages. Creating a new branch to do this: phpmailer.
 
 Next to do:
 1 - Success message on sendmail.php needs to look the same as the error and success messages on other pages.
