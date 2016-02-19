@@ -1,12 +1,12 @@
 #NEXT COMMIT MESSAGE:
 
-Added error message variable to index.php, error message is now echoed above the form. Styled a bit.
+Added error message variable to index.php, error message is now echoed above the form. Styled.
 Added sticky values to the form in index.php.
 (Last commit with similar messages was for sendmail.php)
-Now what I want is for the form OR the success message to show, I'll create a new branch (success_msg) to get this working.
+Wrote if loop in index.php that will either show the form and error messages, if there are any error messages, or the success message. Styled.
 
 Next to do:
-1 - Make the index and subscribe page self-referencing.
-2 - Make the error messages show on the same page above the form like sendmail.php.
+1 - Make unubscribe page self-referencing.
+2 - Make unubscribe page error messages show on the same page above the form like sendmail.php.
 3 - Sort out the navigation links.
 4 - Add a log in to access the send email page.

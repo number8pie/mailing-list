@@ -10,9 +10,17 @@ h1 {
 	text-align: right;
 }
 
-.error-msg {
+p.error-msg,
+p.success-msg {
 	color: #fff;
-	background-color: red;
 	text-align: center;
 	padding: 12px 12px;
+}
+
+p.error-msg {
+	background-color: #ce0000;
+}
+
+p.success-msg {
+	background-color: #007e02;
 }

@@ -76,21 +76,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>"
       ;
     }
+
+    if (!empty($success_msg)) {
+      echo
+        "<div class='row'>
+          <div class='medium-6 medium-offset-3 columns'>
+            <p class='success-msg'>" . $success_msg ."</p>
+          </div>
+        </div>"
+      ;
+    } else {
     ?>
 
-    <div class="row">
-      <div class="medium-6 medium-offset-3 columns">
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-          <label for="firstname">First Name:</label>
-          <input type="text" id="firstname" name="firstname" value="<?php if(!empty($first_name)){echo $first_name;}?>"></input>
-          <label for="lastname">Last Name:</label>
-          <input type="text" id="lastname" name="lastname" value="<?php if(!empty($last_name)){echo $last_name;}?>"></input>
-          <label for="email">Email:</label>
-          <input type="text" id="email" name="email" value="<?php if(!empty($email)){echo $email;}?>"></input>
-          <input class="button" type="submit"></input>
-        </form>
+      <div class="row">
+        <div class="medium-6 medium-offset-3 columns">
+          <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" name="firstname" value="<?php if(!empty($first_name)){echo $first_name;}?>"></input>
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" name="lastname" value="<?php if(!empty($last_name)){echo $last_name;}?>"></input>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" value="<?php if(!empty($email)){echo $email;}?>"></input>
+            <input class="button" type="submit"></input>
+          </form>
+        </div>
       </div>
-    </div>
+
+    <?php
+    }
+    ?>
 
     <div class="row">
       <div class="medium-3 medium-offset-3 columns">
