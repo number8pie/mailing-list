@@ -10,9 +10,9 @@ h1 {
 	text-align: right;
 }
 
-.error-msg p {
+.error-msg {
 	color: #fff;
 	background-color: red;
 	text-align: center;
-	padding: 12px 0;
+	padding: 12px 12px;
 }

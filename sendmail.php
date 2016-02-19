@@ -1,10 +1,11 @@
 <?php
 
+$error = "";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$from = 'number8pie@gmail.com';
 	$subject = $_POST['subject'];
 	$text = $_POST['message'];
-	$error ="";
 
 	if (empty($subject) && empty($text)) {
 		$error = "You forgot to write your subject and message.";
@@ -70,11 +71,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($error)) {
     	echo
 		    "<div class='row'>
-		      <div class='medium-6 medium-offset-3 columns error-msg'>
-		        <p>" . $error ."</p>
+		      <div class='medium-6 medium-offset-3 columns'>
+		        <p class='error-msg'>" . $error ."</p>
 		      </div>
 		    </div>"
-		;
+		  ;
     }
     ?>
 

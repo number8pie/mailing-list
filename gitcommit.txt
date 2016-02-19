@@ -1,7 +1,9 @@
 #NEXT COMMIT MESSAGE:
 
-Added error message variable, error message is now echoed above the form. Styled a bit.
-Added sticky values to the form.
+Added error message variable to index.php, error message is now echoed above the form. Styled a bit.
+Added sticky values to the form in index.php.
+(Last commit with similar messages was for sendmail.php)
+Now what I want is for the form OR the success message to show, I'll create a new branch (success_msg) to get this working.
 
 Next to do:
 1 - Make the index and subscribe page self-referencing.
