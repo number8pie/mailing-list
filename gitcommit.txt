@@ -1,7 +1,6 @@
 #NEXT COMMIT MESSAGE:
 
-Set up phpmailer with wamp. That was... a grind.
-Success messages now look like the other pages, and either they show or the form shows.
+Whittled down phpmailer to only the necessary files.
 
 Next to do:
 1 - Prevent sql injection on all input fields in index and sendmail.

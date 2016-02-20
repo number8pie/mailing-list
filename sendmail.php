@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$result = mysqli_query($dbc, $query)
 						or die('Error querying database.');
 
-		require 'inc/phpmailer/class.phpmailer.php';
+		require 'inc/class.phpmailer.php';
 		while ($row = mysqli_fetch_array($result)) {
 			$first_name = $row['first_name'];
 			$last_name = $row['last_name'];
