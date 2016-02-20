@@ -1,8 +1,8 @@
 #NEXT COMMIT MESSAGE:
 
-Trying out phpmailer, needa snippet of code from the master branch. Commiting changes to phpmailer branch before switching.
+Set up phpmailer with wamp. That was... a grind.
+Success messages now look like the other pages, and either they show or the form shows.
 
 Next to do:
-1 - Success message on sendmail.php needs to look the same as the error and success messages on other pages.
-2 - Prevent sql injection on all input fields in index and sendmail.
-3 - Add a log in to access the send email page. (to be done at a later date, as this is a more advance subject, password encryption, salts etc.)
+1 - Prevent sql injection on all input fields in index and sendmail.
+2 - Add a log in to access the send email page. (to be done at a later date, as this is a more advance subject, password encryption, salts etc.)

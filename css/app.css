@@ -32,6 +32,7 @@ nav {
 nav ul {
 	list-style: none;
 	text-align: center;
+	margin-left: 0;
 }
 
 nav ul li {
@@ -49,6 +50,7 @@ nav ul li:before {
 
 nav ul li:first-child:before {
 	content: '';
+	margin-left: 0;
 }
 
 

@@ -8,6 +8,7 @@ $password = "lee1";
 $database = "mailing_list";
 
 $error = "";
+$success = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$from = 'number8pie@gmail.com';
@@ -34,9 +35,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$result = mysqli_query($dbc, $query)
 						or die('Error querying database.');
 
+		require 'inc/phpmailer/class.phpmailer.php';
 		while ($row = mysqli_fetch_array($result)) {
-			
-			require 'inc/class.phpmailer.php';
+			$first_name = $row['first_name'];
+			$last_name = $row['last_name'];
+			$to = $row['email'];
+
 			$mail = new PHPMailer();
 			$mail->IsSMTP();
 			$mail->Mailer = 'smtp';
@@ -44,26 +48,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$mail->Host = 'smtp.gmail.com'; // "ssl://smtp.gmail.com" didn't worked
 			$mail->Port = 465;
 			$mail->SMTPSecure = 'ssl';
-			// or try these settings (worked on XAMPP and WAMP):
-			// $mail->Port = 587;
-			// $mail->SMTPSecure = 'tls';
 
-
+			$mail->addAddress($to);
 			$mail->Username = "number8pie@gmail.com";
 			$mail->Password = "sinbinwin290909";
 
-			$mail->IsHTML(true); // if you are going to send HTML formatted emails
+			$mail->IsHTML(true);
 
 			$mail->From = $from;
 			$mail->FromName = "Lee Thomas";
 
 			$mail->Subject = $subject;
-			$mail->Body = "Dear $first_name $last_name, \n $text";
+			$mail->Body = "Dear $first_name $last_name, <br /> $text";
 
 			if(!$mail->Send())
 			    echo "Message was not sent <br />PHPMailer Error: " . $mail->ErrorInfo;
 			else
-			    echo 'Email sent to: ' . $to . '<br />';
+			    $success .= "Email sent to: $to <br />";
+			    //echo 'Email sent to: ' . $to . '<br />';
 
 			$mail->ClearAllRecipients();
 
@@ -106,28 +108,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		        <p class='error-msg'>" . $error ."</p>
 		      </div>
 		    </div>"
-		  ;
+		;
     }
+    
+    if (!empty($success)) {
+    	echo
+		    "<div class='row'>
+		      <div class='medium-6 medium-offset-3 columns'>
+		        <p class='success-msg'>" . $success ."</p>
+		      </div>
+		    </div>"
+		;
+    } else {
     ?>
 
-    <div class="row">
-      <div class="medium-6 medium-offset-3 columns">
-        <p></p>
-      </div>
-    </div>
+	    <div class="row">
+	      <div class="medium-6 medium-offset-3 columns">
+	        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+	          <label for="subject">Subject:</label>
+	          <input type="text" id="subject" name="subject" value="<?php if(!empty($subject)){echo $subject;}?>"></input>
+	          <label for="message">Message:</label>
+	          <textarea id="message" name="message" rows="5"><?php if (!empty($text)) {echo $text;}?></textarea>
+	          <input class="button" type="submit"></input>
+	        </form>
+	      </div>
+	    </div>
 
-    <div class="row">
-      <div class="medium-6 medium-offset-3 columns">
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-          <label for="subject">Subject:</label>
-          <input type="text" id="subject" name="subject" value="<?php if(!empty($subject)){echo $subject;}?>"></input>
-          <label for="message">Message:</label>
-          <textarea id="message" name="message" rows="5"><?php if (!empty($text)) {echo $text;}?></textarea>
-          <input class="button" type="submit"></input>
-        </form>
-      </div>
-    </div>
-
+    <?php
+	}
+    ?>
 <?php include_once("inc/nav.php"); ?>
 
     <script src="js/vendor/jquery.min.js"></script>
