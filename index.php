@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   if (!empty($first_name) && !empty($last_name) && !empty($email)) {
-    $query = "INSERT INTO email_list (first_name, last_name, email) " .
+    $query = "INSERT IGNORE INTO email_list (first_name, last_name, email) " .
               "VALUES ('$first_name', '$last_name', '$email')";
 
     mysqli_query($dbc, $query);
